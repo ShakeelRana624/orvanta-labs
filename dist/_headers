@@ -2,4 +2,4 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src https://www.linkedin.com; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'self' https://chatgpt.com https://*.chatgpt.com https://*.chatgpt.site https://codex.openai.com; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src https://formsubmit.co; frame-src https://www.linkedin.com; object-src 'none'; base-uri 'none'; form-action https://formsubmit.co; frame-ancestors 'self' https://chatgpt.com https://*.chatgpt.com https://*.chatgpt.site https://codex.openai.com; upgrade-insecure-requests

@@ -1,9 +1,32 @@
 const menu=document.querySelector('.menu-toggle');
 menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.getElementById('site-nav').classList.toggle('is-open',open);menu.textContent=open?'Close −':'Menu +';});
-if(document.getElementById('enquiry-form')){
-document.getElementById('enquiry-form').addEventListener('submit',e=>{e.preventDefault();if(!e.currentTarget.reportValidity())return;const data=new FormData(e.currentTarget);const name=String(data.get('name')||'').trim().slice(0,100);const brief=String(data.get('brief')||'').trim().slice(0,2000);if(!name||brief.length<15){document.getElementById('brief').setCustomValidity('Please describe the problem in at least 15 characters.');document.getElementById('brief').reportValidity();return;}document.getElementById('brief').setCustomValidity('');const company=String(data.get('company')||'').trim().slice(0,150);const message=`Hi Shakeel, I'm ${name}${company?' from '+company:''}.\n\nI'm interested in: ${data.get('service')}.\n\nProblem: ${brief}\n\nCan we discuss a focused pilot?`;window.open('https://wa.me/923198492624?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');});
-document.getElementById('brief').addEventListener('input',e=>e.target.setCustomValidity(''));
-
+const enquiryForm=document.getElementById('enquiry-form');
+if(enquiryForm){
+ const submitButton=document.getElementById('send-enquiry');
+ const status=document.getElementById('form-status');
+ let sending=false;
+ const showStatus=(message,type)=>{status.hidden=false;status.textContent=message;status.dataset.state=type;};
+ document.getElementById('brief').addEventListener('input',e=>e.target.setCustomValidity(''));
+ enquiryForm.addEventListener('submit',async event=>{
+  event.preventDefault();if(sending||!enquiryForm.reportValidity())return;
+  const data=new FormData(enquiryForm);
+  if(String(data.get('_honey')||'').trim()){showStatus('Please email us directly to discuss your project.','error');return;}
+  const name=String(data.get('name')||'').trim().slice(0,100);
+  const email=String(data.get('email')||'').trim().slice(0,254);
+  const message=String(data.get('message')||'').trim().slice(0,2000);
+  if(!name||!email||message.length<15){document.getElementById('brief').setCustomValidity('Please describe the problem in at least 15 characters.');enquiryForm.reportValidity();return;}
+  const payload={name,email,company:String(data.get('company')||'').trim().slice(0,150),service:String(data.get('service')||'').slice(0,100),message,_subject:'New project enquiry | Orvanta Labs',_template:'table',_url:'https://orvanta-labs.sociableanchovy16.chatgpt.site/contact.html'};
+  sending=true;submitButton.disabled=true;submitButton.textContent='Sending…';enquiryForm.setAttribute('aria-busy','true');showStatus('Sending your enquiry…','pending');
+  const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),25000);
+  try{
+   const response=await fetch('https://formsubmit.co/ajax/shakeelrana6240@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload),signal:controller.signal});
+   const result=await response.json();
+   if(!response.ok||!(result.success===true||result.success==='true'))throw new Error('Submission not accepted');
+   enquiryForm.reset();showStatus('Thank you. Your enquiry has been submitted. We will reply to the email address you provided.','success');status.focus();
+  }catch(error){showStatus('We could not confirm your submission. Your details are still here. Please try again or email shakeelrana6240@gmail.com directly.','error');status.focus();}
+  finally{clearTimeout(timeout);sending=false;submitButton.disabled=false;submitButton.textContent='Send enquiry ↗';enquiryForm.removeAttribute('aria-busy');}
+ });
+ if(new URLSearchParams(location.search).get('submitted')==='1'){showStatus('The email service has returned you to this page. If it requested a confirmation step, complete that step before relying on delivery.','info');}
 }
 const filterButtons=[...document.querySelectorAll('[data-filter]')];
 if(filterButtons.length){

@@ -1,13 +1,13 @@
 # Orvanta Labs
 
-Buildless static agency website. Serve dist. No server-side application or package installation required.
+Static multi-page agency website. Serve dist. 20 pages and 10 categorized project case studies. Local fonts and authored 3840x2160 product previews. Original repository captures are used where available; remaining UI previews are labelled with sample data.
 
-20 pages, 10 categorized projects, 4 service detail pages, source-backed case descriptions, contact draft flow, local fonts, authored 3840x2160 thumbnail layouts and optimized local media. Brand/colors follow the owner's instructions. Existing site identity and owner-private audience are preserved.
+Contact submissions use FormSubmit's AJAX email endpoint for shakeelrana6240@gmail.com. Client email is required so the owner can reply. Native HTML POST fallback is configured. Recipient activation is required by FormSubmit. A setup test from this execution environment was rejected by the provider's Cloudflare browser-signature policy, so no activation email or inbox delivery was verified. Do not describe production email delivery as tested until the owner activates the endpoint and completes a real submission test.
 
-The contact form creates a WhatsApp draft; the visitor chooses whether to send it. LinkedIn embeds require a click and use a fixed allowlist. CSP is declared in each page; additional HTTP header configuration is supplied in dist/_headers subject to hosting support.
+Form status reports provider acceptance, not email delivery. Failed or unconfirmed requests preserve user input. Duplicate submits are blocked while sending; requests time out after 25 seconds. A honeypot and native validation are included. No automatic response email is configured.
 
-Sources: public ShakeelRana624 repositories, founder portfolio and owner-supplied media. Voice assistant and drone field-showcase descriptions were verified from the supplied LinkedIn posts. Original surveillance academic poster preserves team authorship. Demo videos demonstrate engineering projects, not independent client outcomes.
+The phone number is not printed in page text. A wa.me link opens WhatsApp when clicked. Source code necessarily contains the destination number to support that link.
 
-Some supplied videos exceed the executor's 32 MiB transfer limit; these were not imported. See the separate security/media review for exact status. Browser visual QA remains limited by the unavailable managed preview relay.
+CSP permits same-origin application assets, the fixed FormSubmit endpoint for contact requests, and allowlisted LinkedIn frames after a click. Privacy text describes FormSubmit processing. HTTP header rules are in dist/_headers, subject to hosting support. Audience remains owner-private.
 
-Thumbnail revision: project cards now show full-frame product views. Actual repository captures are used where available; remaining interface previews are labelled and contain sample data. The original weapon-detection frame leads the surveillance page. Exact inline fraud image replacement and three oversized supplied video imports remain pending accessible files.
+Contact layout, grids, text wrapping and touch targets include mobile/tablet rules. Visual browser QA is still limited by unavailable managed preview relay. Source/interaction/asset checks pass.
