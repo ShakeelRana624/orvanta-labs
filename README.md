@@ -24,6 +24,10 @@ From this repository, run `python3 -m http.server 3000 --directory dist`, then v
 
 Run the existing email-form regression checks with `node tests/email-form.test.cjs`. They use mocked provider responses and do not send email. Operational limitations and review notes are in docs.
 
+## Deploy to Vercel
+
+Import this repository with Framework Preset **Other** and Root Directory `./`. `vercel.json` configures the dependency-free build and `public` output automatically. See [Vercel deployment instructions](docs/VERCEL-DEPLOY.md) for domain configuration, plan selection and contact activation. No GitHub Actions job or deployment secret is required.
+
 ## Hosting identity
 
 .openai/hosting.json identifies the existing Sites project. This GitHub repository is a source backup and editing home; pushing here does not automatically publish the website. Public launch and domain setup are separate steps. Keep .env files, provider credentials and generated archives out of version control.
