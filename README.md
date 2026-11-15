@@ -9,3 +9,5 @@ The contact form creates a WhatsApp draft; the visitor chooses whether to send i
 Sources: public ShakeelRana624 repositories, founder portfolio and owner-supplied media. Voice assistant and drone field-showcase descriptions were verified from the supplied LinkedIn posts. Original surveillance academic poster preserves team authorship. Demo videos demonstrate engineering projects, not independent client outcomes.
 
 Some supplied videos exceed the executor's 32 MiB transfer limit; these were not imported. See the separate security/media review for exact status. Browser visual QA remains limited by the unavailable managed preview relay.
+
+Thumbnail revision: project cards now show full-frame product views. Actual repository captures are used where available; remaining interface previews are labelled and contain sample data. The original weapon-detection frame leads the surveillance page. Exact inline fraud image replacement and three oversized supplied video imports remain pending accessible files.
