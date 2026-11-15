@@ -13,3 +13,5 @@ CSP permits same-origin application assets, the fixed FormSubmit endpoint for co
 Contact layout, grids, text wrapping and touch targets include mobile/tablet rules. Visual browser QA is still limited by unavailable managed preview relay. Source/interaction/asset checks pass.
 
 Competitor-informed improvements: clearer target users, first-screen proof, separate computer vision entry, service deliverables/evaluation and related work, engagement/pricing-context guide, FAQs, contextual enquiry selection, unique page metadata, sitemap and responsive thumbnail sources. Competitor logos/claims were not added. Source file comparisons are not live speed measurements. Owner-private audience and email-activation limitation remain unchanged.
+
+Visual polish follow-up: real-project hero replaces the generic illustration; repeated homepage philosophy section removed; olive surfaces, typography, card alignment and contact form refined. Sticky navigation supports keyboard/outside-click dismissal, with no-JavaScript navigation fallback. Project filtering includes reset and focus restoration. See QUICK-GAP-REVIEW.md for completed changes and genuine remaining blockers.

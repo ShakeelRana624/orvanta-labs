@@ -1,5 +1,9 @@
+document.documentElement?.classList.add('js-enabled');
 const menu=document.querySelector('.menu-toggle');
 menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.getElementById('site-nav').classList.toggle('is-open',open);menu.textContent=open?'Close −':'Menu +';});
+const closeMenu=()=>{if(!menu)return;menu.setAttribute('aria-expanded','false');document.getElementById('site-nav').classList.toggle('is-open',false);menu.textContent='Menu +';};
+document.addEventListener?.('keydown',event=>{if(event.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){closeMenu();menu.focus();}});
+document.addEventListener?.('click',event=>{if(menu?.getAttribute('aria-expanded')==='true'&&event.target.closest&&!event.target.closest('header'))closeMenu();});
 const enquiryForm=document.getElementById('enquiry-form');
 if(enquiryForm){
  const serviceField=document.getElementById('service');
@@ -36,8 +40,9 @@ const filterButtons=[...document.querySelectorAll('[data-filter]')];
 if(filterButtons.length){
  const search=document.getElementById('project-search');const cards=[...document.querySelectorAll('.project-card')];
  const params=new URLSearchParams(location.search);let category=['vision','ml','agents'].includes(params.get('category'))?params.get('category'):'all';search.value=(params.get('q')||'').slice(0,100);
- function update(){const term=search.value.trim().toLowerCase();let shown=0;cards.forEach(card=>{card.hidden=!((category==='all'||card.dataset.category===category)&&card.dataset.title.includes(term));if(!card.hidden)shown++;});filterButtons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===category)));document.getElementById('project-count').textContent=`Showing ${shown} ${shown===1?'project':'projects'}`;document.getElementById('no-projects').hidden=shown!==0;const p=new URLSearchParams();if(category!=='all')p.set('category',category);if(term)p.set('q',search.value.trim());history.replaceState(null,'',location.pathname+(p.size?'?'+p.toString():''));}
- filterButtons.forEach(b=>b.addEventListener('click',()=>{category=b.dataset.filter;update();}));search.addEventListener('input',update);update();
+ const resetFilters=document.getElementById('reset-projects');
+ function update(){const term=search.value.trim().toLowerCase();if(resetFilters)resetFilters.hidden=category==='all'&&!term;let shown=0;cards.forEach(card=>{card.hidden=!((category==='all'||card.dataset.category===category)&&card.dataset.title.includes(term));if(!card.hidden)shown++;});filterButtons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===category)));document.getElementById('project-count').textContent=`Showing ${shown} ${shown===1?'project':'projects'}`;document.getElementById('no-projects').hidden=shown!==0;const p=new URLSearchParams();if(category!=='all')p.set('category',category);if(term)p.set('q',search.value.trim());history.replaceState(null,'',location.pathname+(p.size?'?'+p.toString():''));}
+ filterButtons.forEach(b=>b.addEventListener('click',()=>{category=b.dataset.filter;update();}));search.addEventListener('input',update);resetFilters?.addEventListener('click',()=>{category='all';search.value='';update();search.focus();});update();
 }
 // Only these reviewed project IDs may create a third-party frame.
 const allowedLinkedInPosts=new Set(['7408115374870798337','7525612135318630400']);
