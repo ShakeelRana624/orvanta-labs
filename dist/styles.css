@@ -107,3 +107,5 @@ body{background:var(--paper);text-rendering:optimizeLegibility}header{position:s
 html:not(.js-enabled) .menu-toggle{display:none}@media(max-width:920px){html:not(.js-enabled) header nav{display:flex;position:static;border:0;box-shadow:none;flex-basis:100%;padding:12px 0 0;background:transparent}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 .project-card{display:flex;flex-direction:column}.project-image{flex-shrink:0}.project-body{display:flex;flex-direction:column;flex:1}.project-body>.text-link{margin-top:auto}
+/* Requested hero composition and font-independent brand mark. */
+.showcase-image img.hero-composite{aspect-ratio:auto;height:auto;object-fit:contain}.mark>svg{display:block;width:25px;height:25px;flex-shrink:0}footer .mark>svg{width:22px;height:22px}
