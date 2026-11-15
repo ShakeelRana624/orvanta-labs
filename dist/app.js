@@ -2,6 +2,10 @@ const menu=document.querySelector('.menu-toggle');
 menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.getElementById('site-nav').classList.toggle('is-open',open);menu.textContent=open?'Close −':'Menu +';});
 const enquiryForm=document.getElementById('enquiry-form');
 if(enquiryForm){
+ const serviceField=document.getElementById('service');
+ const serviceChoices={vision:'Computer vision',ml:'Applied machine learning',automation:'Workflow automation',knowledge:'Knowledge assistant',agency:'Agency partnership',discovery:'Help me scope an idea'};
+ const requestedService=new URLSearchParams(location.search).get('service');
+ if(serviceField&&Object.prototype.hasOwnProperty.call(serviceChoices,requestedService))serviceField.value=serviceChoices[requestedService];
  const submitButton=document.getElementById('send-enquiry');
  const status=document.getElementById('form-status');
  let sending=false;

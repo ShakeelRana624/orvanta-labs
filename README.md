@@ -1,6 +1,6 @@
 # Orvanta Labs
 
-Static multi-page agency website. Serve dist. 20 pages and 10 categorized project case studies. Local fonts and authored 3840x2160 product previews. Original repository captures are used where available; remaining UI previews are labelled with sample data.
+Static multi-page agency website. Serve dist. 21 pages and 10 categorized project case studies. Local fonts and authored 3840x2160 product previews. Original repository captures are used where available; remaining UI previews are labelled with sample data.
 
 Contact submissions use FormSubmit's AJAX email endpoint for shakeelrana6240@gmail.com. Client email is required so the owner can reply. Native HTML POST fallback is configured. Recipient activation is required by FormSubmit. A setup test from this execution environment was rejected by the provider's Cloudflare browser-signature policy, so no activation email or inbox delivery was verified. Do not describe production email delivery as tested until the owner activates the endpoint and completes a real submission test.
 
@@ -11,3 +11,5 @@ The phone number is not printed in page text. A wa.me link opens WhatsApp when c
 CSP permits same-origin application assets, the fixed FormSubmit endpoint for contact requests, and allowlisted LinkedIn frames after a click. Privacy text describes FormSubmit processing. HTTP header rules are in dist/_headers, subject to hosting support. Audience remains owner-private.
 
 Contact layout, grids, text wrapping and touch targets include mobile/tablet rules. Visual browser QA is still limited by unavailable managed preview relay. Source/interaction/asset checks pass.
+
+Competitor-informed improvements: clearer target users, first-screen proof, separate computer vision entry, service deliverables/evaluation and related work, engagement/pricing-context guide, FAQs, contextual enquiry selection, unique page metadata, sitemap and responsive thumbnail sources. Competitor logos/claims were not added. Source file comparisons are not live speed measurements. Owner-private audience and email-activation limitation remain unchanged.
