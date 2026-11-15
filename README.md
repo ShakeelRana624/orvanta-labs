@@ -15,3 +15,15 @@ Contact layout, grids, text wrapping and touch targets include mobile/tablet rul
 Competitor-informed improvements: clearer target users, first-screen proof, separate computer vision entry, service deliverables/evaluation and related work, engagement/pricing-context guide, FAQs, contextual enquiry selection, unique page metadata, sitemap and responsive thumbnail sources. Competitor logos/claims were not added. Source file comparisons are not live speed measurements. Owner-private audience and email-activation limitation remain unchanged.
 
 Visual polish follow-up: real-project hero replaces the generic illustration; repeated homepage philosophy section removed; olive surfaces, typography, card alignment and contact form refined. Sticky navigation supports keyboard/outside-click dismissal, with no-JavaScript navigation fallback. Project filtering includes reset and focus restoration. See QUICK-GAP-REVIEW.md for completed changes and genuine remaining blockers.
+
+## Edit and preview locally
+
+All editable website source is in dist: HTML pages, styles.css, app.js, assets and hosting header rules. It is a buildless site; dist is the authored source, not a missing framework build. Individual AI/ML project implementations remain in their linked project repositories.
+
+From this repository, run `python3 -m http.server 3000 --directory dist`, then visit http://localhost:3000. There is no dependency installation or compilation step.
+
+Run the existing email-form regression checks with `node tests/email-form.test.cjs`. They use mocked provider responses and do not send email. Operational limitations and review notes are in docs.
+
+## Hosting identity
+
+.openai/hosting.json identifies the existing Sites project. This GitHub repository is a source backup and editing home; pushing here does not automatically publish the website. Public launch and domain setup are separate steps. Keep .env files, provider credentials and generated archives out of version control.
